@@ -22,14 +22,31 @@
 </head>
 <body>
 <div class="pp"><img src="pp.jpg" alt=""></div>
+<div class="mobile-nav">
+	<div class="mobile-nav__case case">
+		<ul>
+			<li><a href="#">Компоненты</a></li>
+			<li><a href="#">О важности нутриентов</a></li>
+			<li><a href="#">Решение</a></li>
+			<li><a href="#">Состав продукта</a></li>
+			<li><a href="#">Факторы успешной беременности </a></li>
+			<li><a href="#">Состав</a></li>
+			<li><a href="#">Кому подходит витажиналь?</a></li>
+			<li><a href="#">Как принимать витажиналь?</a></li>
+			<li><a href="#">Где купить? </a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Статьи</a></li>
+		</ul>
+	</div>
+</div>
+<div class="mobile-btn">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
 <header class="header">
 	<div class="panel">
-		<div class="panel__case case row between">
-			<div class="mobile-btn">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
+		<div class="panel__case case row">
 			<div class="panel__logo"><img src="upload/logos/besins.png" alt=""></div>
 		</div>
 	</div>
@@ -348,10 +365,527 @@
 			</div>
 		</div>
 		<div class="bye__tabs">
-			<div class="bye__tab" data-tab="bye-tab-1"></div>
-			<div class="bye__tab" data-tab="bye-tab-2"></div>
-			<div class="bye__tab" data-tab="bye-tab-3"></div>
+			<div class="bye__tab" data-tab="bye-tab-1">
+				<div class="map" id="map1"></div>
+				<script>
+		      function initMap() {
+		      	var uluru = {lat: 40.674, lng: -73.945};
+		        var map = new google.maps.Map(document.getElementById('map1'), {
+		          center: uluru,
+		          zoom: 12,
+		          styles: [
+		            {
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.icon",
+		              "stylers": [
+		                {
+		                  "visibility": "off"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.stroke",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "administrative.land_parcel",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#bdbdbd"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#ffffff"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.arterial",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#dadada"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.local",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.line",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.station",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#c9c9c9"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            }
+		          ]
+		        });
+						var marker = new google.maps.Marker({position: uluru, map: map, icon: "upload/marker.png"});
+		      }
+		    </script>
+			</div>
+			<div class="bye__tab" data-tab="bye-tab-2">
+				<div class="map" id="map2"></div>
+				<script>
+		      function initMap() {
+		      	var uluru = {lat: 40.674, lng: -73.945};
+		        var map = new google.maps.Map(document.getElementById('map2'), {
+		          center: uluru,
+		          zoom: 12,
+		          styles: [
+		            {
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.icon",
+		              "stylers": [
+		                {
+		                  "visibility": "off"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.stroke",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "administrative.land_parcel",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#bdbdbd"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#ffffff"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.arterial",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#dadada"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.local",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.line",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.station",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#c9c9c9"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            }
+		          ]
+		        });
+						var marker = new google.maps.Marker({position: uluru, map: map, icon: "upload/marker.png"});
+		      }
+		    </script>
+			</div>
+			<div class="bye__tab" data-tab="bye-tab-3">
+				<div class="map" id="map3"></div>
+				<script>
+		      function initMap() {
+		      	var uluru = {lat: 40.674, lng: -73.945};
+		        var map = new google.maps.Map(document.getElementById('map3'), {
+		          center: uluru,
+		          zoom: 12,
+		          styles: [
+		            {
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.icon",
+		              "stylers": [
+		                {
+		                  "visibility": "off"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "elementType": "labels.text.stroke",
+		              "stylers": [
+		                {
+		                  "color": "#f5f5f5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "administrative.land_parcel",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#bdbdbd"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "poi.park",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#ffffff"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.arterial",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#757575"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#dadada"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.highway",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#616161"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "road.local",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.line",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#e5e5e5"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "transit.station",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#eeeeee"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "geometry",
+		              "stylers": [
+		                {
+		                  "color": "#c9c9c9"
+		                }
+		              ]
+		            },
+		            {
+		              "featureType": "water",
+		              "elementType": "labels.text.fill",
+		              "stylers": [
+		                {
+		                  "color": "#9e9e9e"
+		                }
+		              ]
+		            }
+		          ]
+		        });
+						var marker = new google.maps.Marker({position: uluru, map: map, icon: "upload/marker.png"});
+		      }
+		    </script>
+			</div>
 		</div>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfEFyS5xoi-MBgcRXgqXMSDSwCppIb7HY&callback=initMap"></script>
 	</div>
 	<div class="faq">
 		<div class="faq__case case">
@@ -376,27 +910,27 @@
 		<div class="articles__case case">
 			<div class="articles__title title">Статьи</div>
 			<div class="articles__list">
-				<div class="articles__item">
+				<a href="" class="articles__item">
 					<div class="articles__img"><img src="upload/articles/1.png" alt=""></div>
 					<div class="articles__wrap">Витажиаль – комплекс премиум-класса для здоровья мамы и малыша. Начни новую жизнь с лучшего.</div>
-				</div>
-				<div class="articles__item">
+				</a>
+				<a href="" class="articles__item">
 					<div class="articles__img"><img src="upload/articles/2.png" alt=""></div>
 					<div class="articles__wrap">Витажиаль – комплекс премиум-класса для здоровья мамы и малыша. Начни новую жизнь с лучшего.</div>
-				</div>
-				<div class="articles__item">
+				</a>
+				<a href="" class="articles__item">
 					<div class="articles__img"><img src="upload/articles/3.png" alt=""></div>
 					<div class="articles__wrap">Витажиаль – комплекс премиум-класса для здоровья мамы и малыша. Начни новую жизнь с лучшего.</div>
-				</div>
-				<div class="articles__item">
-					<div class="articles__img"><img src="upload/articles/2.png" alt=""></div>
+				</a>
+				<a href="" class="articles__item">
+					 <div class="articles__img"><img src="upload/articles/2.png" alt=""></div>
 					<div class="articles__wrap">Витажиаль – комплекс премиум-класса для здоровья мамы и малыша. Начни новую жизнь с лучшего.</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
+	<div class="gray-bg"></div>
 </div>
-
 
 <div class="footer">
 	<div class="footer__case case">
@@ -409,8 +943,8 @@
 				<div class="footer__more-desc">Безен Хелскеа - производитель инновационных препаратов для мужчин и женщин</div>
 				<div class="footer__socials">
 					<ul>
-						<li><a href=""><i></i></a></li>
-						<li><a href=""><i></i></a></li>
+						<li><a href="" target="_blank"><i class="icon icon-facebook"></i></a></li>
+						<li><a href="" target="_blank"><i class="icon icon-instagram"></i></a></li>
 					</ul>
 				</div>
 			</div>

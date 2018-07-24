@@ -1,6 +1,10 @@
 $(document).ready(function($) {
 
-	$('.owl-carousel').owlCarousel();
+	$('.articles__list').owlCarousel({
+		nav: true,
+		dots: false,
+		loop: true
+	});
 
 
 	$(window).on('load resize', function() {
@@ -39,7 +43,8 @@ $(document).ready(function($) {
 	$('.select__item').click(function(event) {
 		var attr = $(this).attr('data-tab'),
 				selectedItemText = $(this).html(),
-				selectText = $(this).parents('.select').find('.select__text');
+				select = $(this).parents('.select'),
+				selectText = select.find('.select__text');
 		if (!($(this).hasClass('selected'))) {
 			$('.bye__drop-select .select__item').removeClass('selected');
 			$(this).addClass('selected');
@@ -47,5 +52,31 @@ $(document).ready(function($) {
 			$('.bye__tab' + '[data-tab = ' + attr + ']').addClass('selected');
 			selectText.html(selectedItemText);
 		}
+		select.toggleClass('select_toggle');
 	});
+
+	$('.select__text').click(function(event) {
+		var select = $(this).parents('.select');
+		select.toggleClass('select_toggle');
+	});
+
+
+	$('.faq__item').click(function(event) {
+		var body = $(this).find('.faq__item-body');
+		$(this).toggleClass('faq__item_toggle');
+		body.slideToggle(300);
+	});
+
+
+	var mobileBtn = $('.mobile-btn'),
+			nav = $('.mobile-nav'),
+			header = $('.panel__logo');
+
+	mobileBtn.click(function(event) {
+		header.toggleClass('header_toggle');
+		nav.height($('.header').height());
+		nav.toggleClass('mobile-nav_toggle');
+		$(this).toggleClass('mobile-btn_toggle');
+	});
+
 });

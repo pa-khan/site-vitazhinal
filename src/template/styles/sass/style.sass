@@ -4,6 +4,7 @@
 @import grid.sass
 @import '../../libs/fancybox/dist/jquery.fancybox.css'
 @import '../../libs/owl.carousel/dist/assets/owl.carousel.css'
+@import '../../libs/owl.carousel/dist/assets/owl.theme.default.css'
 
 
 /* Global settings */
@@ -49,8 +50,10 @@ input
 	appearance: none
 
 input, textarea, button
-	display: none
+	outline: none
 
+button
+	background: none
 /* Form elements */
 .input
 	position: relative
@@ -114,6 +117,10 @@ input, .btn, .slick-slide, textarea
 
 .panel
 	margin-bottom: 52px
+	&__logo
+		width: 129px
+		margin-left: auto
+		
 
 .header
 	padding-top: 55px
@@ -136,6 +143,14 @@ input, .btn, .slick-slide, textarea
 
 
 .mobile-btn
+	z-index: 10
+	width: 40px
+	height: 26px
+	cursor: pointer
+	position: absolute
+	top: 52px
+	left: 50%
+	margin-left: -650px
 	span
 		position: relative
 		display: block
@@ -149,7 +164,39 @@ input, .btn, .slick-slide, textarea
 			width: 33px
 		&:last-of-type
 			margin-bottom: 0
+	&:hover
+		span
+			&:nth-of-type(2)
+				width: 40px
+	&_toggle
+		width: 26px
+		span
+			width: 23px
+			&:nth-of-type(1)
+				top: 10px
+				transform: rotate(45deg)
+			&:nth-of-type(2)
+				opacity: 0
+			&:nth-of-type(3)
+				top: -10px
+				transform: rotate(-45deg)
 
+.mobile-nav
+	z-index: 5
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	padding-top: 176px
+	background: url('../../img/bg/header.jpg') no-repeat center top, #f27397
+	li
+		display: block
+		list-style-type: none
+		width: 100%
+		font-size: 28px
+	a
+		display: block
+		color: #fff
 
 .desc
 	font-size: 35px
@@ -888,9 +935,44 @@ input, .btn, .slick-slide, textarea
 			margin-right: 5px
 		&-select
 
+	&__tabs
+		position: relative
+		margin-top: 75px
+		height: 747px
+
+	&__tab
+		z-index: -1
+		// opacity: 0
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		transition: .3s
+		display: block
+		&.selected
+			z-index: 1
+		
+		
+
 .select
 	position: relative
+	&_toggle
+		.select
+			&__list
+				display: block
+				
+	&__text
+		cursor: pointer
+		&:after
+			display: inline-block
+			vertical-align: middle
+			content: ''
+			@include sprite($arrow-down)
+			margin-left: 16px
+		
 	&__list
+		display: none
 		z-index: 2
 		position: absolute
 		color: #fff
@@ -902,33 +984,195 @@ input, .btn, .slick-slide, textarea
 
 	&__item
 		padding: 3px 15px
-		margin-bottom: 5px
 		transition: .3s
 		cursor: pointer
 		font-size: 20px
 		&:last-of-type
 			margin-bottom: 0
-		&:hover
+		&:hover, &.selected
 			background-color: darken(#f27397, 10%)
 		
 
 		
 			
 		
+.map
+	width: 100%
+	height: 747px
 		
 		
 		
 		
+.faq
+	padding-top: 126px
+	margin-bottom: 110px
+	&__title
+		margin-right: -90px
+		margin-bottom: 107px
+		
+	&__list
+		max-width: 872px
+		
+	&__item
+		margin-bottom: 30px
+		cursor: pointer
+
+					
+		&-head
+			position: relative
+			span
+				width: 35px
+				display: inline-block
+			&:after
+				content: ''
+				position: absolute
+				top: 7px
+				right: 0
+				transition: .3s
+				@include sprite($arrow-down )
+		&-body
+			display: none
+			padding-left: 35px
+			padding-top: 15px
+			padding-bottom: 5px
+			font-size: 22px
+
+		&_toggle
+			.faq__item-head
+				&:after
+					transform: rotate(180deg)
+
+
+.articles
+	&__title
+		margin-bottom: 90px
+		
+	&__list
+		overflow: hidden
+
+	&__item
+		display: block
+		position: relative
+		font-size: 0
+		&:hover
+			.articles
+				&__wrap
+					opacity: 1
+					transform: scale(1)
+					
+
+	&__wrap
+		position: absolute
+		top: 25px
+		right: 32px
+		bottom: 30px
+		left: 27px
+		color: #fff
+		font-size: 26px
+		padding: 79px 45px 0 35px
+		background-color: rgba(242,115,151,.9)
+		transition: .3s
+		opacity: 0
+		transform: scale(0)
+		
+		
 		
 
 
+.owl-stage
+	display: flex
+
+.owl-prev, .owl-next
+	cursor: pointer
+	span
+		display: none
+.owl-nav
+	font-size: 0
+	display: flex
+	justify-content: center
+	align-items: center
+	padding-top: 90px
+	padding-bottom: 65px
+.owl-prev
+	margin-right: 19px
+	&:before
+		content: ''
+		display: block
+		@include sprite($arrow-left)
+
+.owl-next
+	margin-left: 19px
+	&:before
+		content: ''
+		display: block
+		@include sprite($arrow-right)
 
 
 
+.gray-bg
+	height: 450px
+	background-color: #eceff5
+	margin-top: -450px
 
 
+.footer
+	color: #fff
+	background: url('../../img/bg/footer.png') no-repeat center top
+	// background-size: cover
+	padding-top: 48px
+	padding-bottom: 83px
+	a
+		color: #fff
 
+	&__title
+		margin-bottom: 49px
 
+	&__left
+		width: 181px
+		margin-right: 79px
+		
+	&__mid
+		width: 410px
+		padding-top: 7px
+		margin-right: 104px
+	&__right
+		width: 410px
+		padding-top: 7px
+		p
+			margin-bottom: 31px
+			&:last-of-type
+				margin-bottom: 0
+
+	&__socials
+		margin-top: 111px
+		ul
+		li
+			display: block
+			list-style-type: none
+			margin-right: 19px
+			&:last-of-type
+				margin-right: 0
+
+		a
+			display: block
+			&:hover
+				transform: scale(.8)
+		
+	&__desc
+		margin-top: 87px
+		text-transform: uppercase
+		text-align: center
+		font-size: 30px
+		font-weight: 700
+		opacity: .6
+		margin-right: -25px
+		// padding-left: 20px
+		
+		
+		
+.icon
+	display: inline-block
+	vertical-align: middle
 
 .hidden-lg
 	display: none
