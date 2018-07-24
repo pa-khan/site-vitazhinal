@@ -1,0 +1,121 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$arrow-down-name: 'arrow-down'
+$arrow-down-x: 0px
+$arrow-down-y: 36px
+$arrow-down-offset-x: 0px
+$arrow-down-offset-y: -36px
+$arrow-down-width: 20px
+$arrow-down-height: 12px
+$arrow-down-total-width: 71px
+$arrow-down-total-height: 48px
+$arrow-down-image: 'sprite.png'
+$arrow-down: (0px, 36px, 0px, -36px, 20px, 12px, 71px, 48px, 'sprite.png', 'arrow-down', )
+$arrow-left-name: 'arrow-left'
+$arrow-left-x: 59px
+$arrow-left-y: 0px
+$arrow-left-offset-x: -59px
+$arrow-left-offset-y: 0px
+$arrow-left-width: 12px
+$arrow-left-height: 20px
+$arrow-left-total-width: 71px
+$arrow-left-total-height: 48px
+$arrow-left-image: 'sprite.png'
+$arrow-left: (59px, 0px, -59px, 0px, 12px, 20px, 71px, 48px, 'sprite.png', 'arrow-left', )
+$arrow-right-name: 'arrow-right'
+$arrow-right-x: 59px
+$arrow-right-y: 20px
+$arrow-right-offset-x: -59px
+$arrow-right-offset-y: -20px
+$arrow-right-width: 12px
+$arrow-right-height: 20px
+$arrow-right-total-width: 71px
+$arrow-right-total-height: 48px
+$arrow-right-image: 'sprite.png'
+$arrow-right: (59px, 20px, -59px, -20px, 12px, 20px, 71px, 48px, 'sprite.png', 'arrow-right', )
+$facebook-name: 'facebook'
+$facebook-x: 37px
+$facebook-y: 0px
+$facebook-offset-x: -37px
+$facebook-offset-y: 0px
+$facebook-width: 22px
+$facebook-height: 36px
+$facebook-total-width: 71px
+$facebook-total-height: 48px
+$facebook-image: 'sprite.png'
+$facebook: (37px, 0px, -37px, 0px, 22px, 36px, 71px, 48px, 'sprite.png', 'facebook', )
+$instagram-name: 'instagram'
+$instagram-x: 0px
+$instagram-y: 0px
+$instagram-offset-x: 0px
+$instagram-offset-y: 0px
+$instagram-width: 37px
+$instagram-height: 36px
+$instagram-total-width: 71px
+$instagram-total-height: 48px
+$instagram-image: 'sprite.png'
+$instagram: (0px, 0px, 0px, 0px, 37px, 36px, 71px, 48px, 'sprite.png', 'instagram', )
+$spritesheet-width: 71px
+$spritesheet-height: 48px
+$spritesheet-image: 'sprite.png'
+$spritesheet-sprites: ($arrow-down, $arrow-left, $arrow-right, $facebook, $instagram, )
+$spritesheet: (71px, 48px, 'sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
