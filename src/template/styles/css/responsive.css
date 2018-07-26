@@ -27,7 +27,7 @@
     .list li:before {
       top: 8px; }
   .about__img {
-    max-width: 550px; }
+    width: 550px; }
   .importance__img {
     width: 700px; }
   .recommendations__desc {
@@ -500,7 +500,7 @@
     margin-right: auto;
     width: 100%; }
   .about__text {
-    max-width: 100%; }
+    width: 100%; }
   .decision__wrap {
     padding-left: 0; }
   .product {

@@ -179,7 +179,8 @@
           box-sizing: border-box; }
 
 html, body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  position: relative; }
 
 body {
   font-size: 26px;
@@ -272,6 +273,9 @@ input, .btn, .slick-slide, textarea {
 .mid {
   margin-left: auto;
   margin-right: auto; }
+
+.wrapper {
+  overflow: hidden; }
 
 /* Header */
 .panel {
@@ -465,7 +469,7 @@ input, .btn, .slick-slide, textarea {
     margin-left: -109px;
     margin-right: 59px; }
   .about__text {
-    max-width: 575px;
+    width: 575px;
     padding-top: 74px; }
   .about__count {
     right: -75px;
@@ -774,7 +778,7 @@ input, .btn, .slick-slide, textarea {
       content: '';
       position: absolute;
       top: 65px;
-      left: -90px;
+      left: -82px;
       width: 258px;
       height: 258px;
       background: url("../../img/bg/flower-extra-small.png") no-repeat center; }
