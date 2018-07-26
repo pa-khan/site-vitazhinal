@@ -2,9 +2,9 @@
 @import sprite.sass
 @import fonts.sass
 @import grid.sass
-@import '../../libs/fancybox/dist/jquery.fancybox.css'
-@import '../../libs/owl.carousel/dist/assets/owl.carousel.css'
-@import '../../libs/owl.carousel/dist/assets/owl.theme.default.css'
+@import '../../libs/owl.carousel/dist/assets/owl.carousel.min.css'
+@import '../../libs/owl.carousel/dist/assets/owl.theme.default.min.css'
+@import '../../libs/animate.css/animate.min.css'
 
 
 /* Global settings */
@@ -19,6 +19,9 @@ $color-1: #2c2626
 	margin: 0
 	border: 0
 	box-sizing: border-box
+
+html, body
+	overflow-x: hidden
 
 body
 	font-size: $font-size
@@ -44,34 +47,11 @@ img
 	max-width: 100% !important
 	max-height: 100% !important
 
-input
-	-webkit-appearance: none
-	-moz-appearance: none
-	appearance: none
-
 input, textarea, button
 	outline: none
 
 button
 	background: none
-/* Form elements */
-.input
-	position: relative
-	&__wrap
-		font-size: $font-size
-		font-family: $font-family-1
-		background: white
-		width: 100%
-		
-
-.textarea
-	position: relative
-	&__wrap
-		font-size: $font-size
-		font-family: $font-family-1
-		background: white
-		width: 100%
-		resize: none
 
 .btn
 	position: relative
@@ -93,6 +73,9 @@ button
 	&_red
 		color: #fff
 		background-color: #ca5576
+		&:hover
+			color: #ca5576
+			background-color: #fff
 
 .input input, .textarea textarea
 	transition: .3s
@@ -114,7 +97,7 @@ input, .btn, .slick-slide, textarea
 	margin-left: auto
 	margin-right: auto
 
-
+/* Header */
 .panel
 	margin-bottom: 52px
 	&__logo
@@ -126,7 +109,7 @@ input, .btn, .slick-slide, textarea
 	padding-top: 55px
 	padding-bottom: 95px
 	color: #fff
-	background: url('../../img/bg/header.jpg') no-repeat center top, #f27397
+	background: url('../../img/bg/header.min.jpg') no-repeat center bottom, #f27397
 	&__title
 		margin-bottom: 43px
 	&__desc
@@ -136,7 +119,16 @@ input, .btn, .slick-slide, textarea
 
 	&__btn
 		max-width: 301px
-		
+	&__title, &__desc, &__text, &__btn, .panel__logo
+		transition: .3s
+	&_toggle
+		.header
+			&__title, &__desc, &__text, &__btn, .panel__logo
+				opacity: 0
+	
+		.panel__logo
+			opacity: 0
+				
 		
 
 
@@ -181,23 +173,50 @@ input, .btn, .slick-slide, textarea
 				top: -10px
 				transform: rotate(-45deg)
 
-.mobile-nav
+.nav
 	z-index: 5
 	position: absolute
 	top: 0
 	left: 0
 	right: 0
 	padding-top: 176px
-	background: url('../../img/bg/header.jpg') no-repeat center top, #f27397
+	background: rgba(242,115,151, .6)
+	transform: translateY(-100%)
+	transition: .3s
+	height: 862px
+	ul
+		width: 480px
 	li
 		display: block
 		list-style-type: none
 		width: 100%
 		font-size: 28px
-	a
-		display: block
-		color: #fff
+		margin-bottom: 18px
 
+		&:last-of-type
+			margin-bottom: 0
+	a
+		color: #fff
+		position: relative
+		&:after
+			position: absolute
+			display: block
+			content: ''
+			width: 0%
+			height: 2px
+			bottom: 0
+			left: 0
+			background-color: #fff
+			transition: .3s
+		&:hover
+			&:after
+				width: 100%
+	&_toggle
+		transform: translateY(0%)
+
+/* /Header */
+
+/* Global elements */
 .desc
 	font-size: 35px
 	font-weight: 700
@@ -255,6 +274,15 @@ input, .btn, .slick-slide, textarea
 			&:before
 				background-color: #fff
 
+.wrap
+	margin-left: -78px
+	margin-right: -78px
+
+
+/* /Global elements */
+
+
+/* About */
 .about
 	padding-top: 98px
 	padding-bottom: 88px
@@ -276,9 +304,10 @@ input, .btn, .slick-slide, textarea
 	&__count
 		right: -75px
 		bottom: 0px
-		
+/* /About */
 
 
+/* Importance */
 .importance
 	padding-top: 84px
 	padding-bottom: 695px
@@ -311,13 +340,11 @@ input, .btn, .slick-slide, textarea
 			margin-bottom: 41px
 			&:last-of-type
 				margin-bottom: 0
-		
+
+/* /Importance */
 		
 
-.wrap
-	margin-left: -78px
-	margin-right: -78px
-
+/* Recommendations */
 .recommendations
 	z-index: 2
 	position: relative
@@ -344,8 +371,11 @@ input, .btn, .slick-slide, textarea
 				margin-bottom: 42px
 				&:last-of-type
 					margin-bottom: 0
-		
+/* /Recommendations */	
 
+
+
+/* Decision */
 .decision
 	padding-top: 95px
 	&__count
@@ -378,8 +408,11 @@ input, .btn, .slick-slide, textarea
 		width: calc(100% - 643px)
 		padding: 13px 0 0 52px
 		line-height: 42px
+/* /Decision */
 
 
+
+/* Product */
 .product
 	padding-top: 88px
 	padding-bottom: 160px
@@ -417,6 +450,8 @@ input, .btn, .slick-slide, textarea
 			display: block
 			margin-left: auto
 			margin-right: auto
+			z-index: 3
+			position: relative
 	&__item
 		z-index: 3
 		font-weight: 700
@@ -470,8 +505,6 @@ input, .btn, .slick-slide, textarea
 				transform: rotate(-142deg)
 				width: 215px
 
-
-		
 		
 .line
 	background-color: #9d6c6f
@@ -496,8 +529,13 @@ input, .btn, .slick-slide, textarea
 		height: 11px
 		border-radius: 50%
 		background-color: #9d6c6f
+/* /Product */
 
 
+
+
+
+/* Advantages */
 .advantages
 	padding-top: 64px
 	padding-bottom: 108px
@@ -527,8 +565,11 @@ input, .btn, .slick-slide, textarea
 	&__count
 		right: -114px
 		top: -60px
-		
-		
+/* /Advantages */	
+
+	
+
+/* Composition */
 .composition
 	padding-top: 71px
 	padding-bottom: 115px
@@ -553,23 +594,42 @@ input, .btn, .slick-slide, textarea
 		margin-left: -42px
 		margin-right: -80px
 		padding-top: 35px
+/* /Composition */
 
+
+/* Pregnancy */
 .pregnancy
 	padding-top: 119px
-	padding-bottom: 170px
+	padding-bottom: (170px + 83px)
 	background: url('../../img/bg/pregnancy.png') no-repeat center top, #f5f7fa
 	&__count
 		top: -127px
 		right: -185px
-	&__img
+	&__logo
 		margin-bottom: 63px
 		
+	&__img
+		position: absolute
+		top: 130px
+		right: -290px
 	&__facts
 		font-weight: 700
 		margin-left: -3px
 		display: flex
 		align-items: center
 		margin-bottom: 75px
+		&:before
+			z-index: 1
+			content: ''
+			position: absolute
+			top: 65px
+			left: -90px
+			width: 258px
+			height: 258px
+			background: url('../../img/bg/flower-extra-small.png') no-repeat center
+		span, p
+			position: relative
+			z-index: 2
 		span
 			font-size: 130px
 		p
@@ -586,10 +646,7 @@ input, .btn, .slick-slide, textarea
 				margin-bottom: 33px
 				&:last-of-type
 					margin-bottom: 0
-			
-		
-
-
+				
 
 .data
 	&__item
@@ -628,13 +685,19 @@ input, .btn, .slick-slide, textarea
 				align-items: center
 				display: flex
 				opacity: .6
+/* /Pregnancy */
+
+
+
 
 		
-		
+/* For */	
 .for
+	position: relative
 	color: #fff
-	background: url('../../img/bg/for.png') no-repeat center bottom, #f27397
+	background: url('../../img/bg/for.png') no-repeat center bottom
 	margin-bottom: 25px
+	margin-top: -83px
 	&__wrap
 		padding-top: 64px
 		padding-left: 112px
@@ -660,6 +723,7 @@ input, .btn, .slick-slide, textarea
 			font-weight: 700
 			flex-wrap: wrap
 			position: relative
+			padding-left: 18px
 			&:before, &:after
 				position: absolute
 				top: 50%
@@ -692,9 +756,14 @@ input, .btn, .slick-slide, textarea
 		.for
 			&__line
 				margin-bottom: 29px
-				
 		
+
+/* /For */	
+
+
+
 		
+/* Description */
 .description
 	padding-top: 146px
 	&__count
@@ -705,7 +774,7 @@ input, .btn, .slick-slide, textarea
 		margin-bottom: 95px
 	&__wrap
 		position: relative
-		z-index: 1
+		z-index: 2
 		color: #fff
 		background-color: #f27397
 		
@@ -753,7 +822,16 @@ input, .btn, .slick-slide, textarea
 		position: relative
 		width: calc(100% - 643px)
 		height: 885px
-		ul
+		&:before
+			position: absolute
+			top: 50%
+			content: ''
+			width: 0
+			height: 0
+			border-style: solid
+			transform: translateY(-50%)
+			border-width: 6px 0 6px 10px
+			border-color: transparent transparent transparent #ffffff
 		
 	&__tab
 		top: 0
@@ -778,11 +856,19 @@ input, .btn, .slick-slide, textarea
 		transform: translateY(-50%)
 		font-size: 26px
 		margin-top: 6px
-		
-		
+/* /Description */
+
+
+
+
+
+
+/* Suitable */
 .suitable
-	padding-top: 108px
+	padding-top: 568px
 	padding-bottom: 80px
+	background-color: #f6f7fa
+	margin-top: -460px
 	&__count
 		right: 50%
 		top: -108px
@@ -791,6 +877,8 @@ input, .btn, .slick-slide, textarea
 	&__title
 		text-align: center 
 		margin-bottom: 197px
+		position: relative
+		z-index: 1
 
 	&__item
 		width: 320px
@@ -817,9 +905,13 @@ input, .btn, .slick-slide, textarea
 		color: #010101
 		position: relative
 		z-index: 1
+
+/* /Suitable */
 		
+
 		
 	
+/* Take */
 .take
 	padding-top: 87px
 	&__count
@@ -910,13 +1002,18 @@ input, .btn, .slick-slide, textarea
 			height: 9px
 			background-color: #f27397
 			border-radius: 50%
+			right: 50%
+			margin-right: -4px
 
 		
 	&__text
 		position: absolute
 		
+/* /Take */
 
 		
+
+/* Bye */
 .bye
 	padding-top: 126px
 	color: #010101
@@ -952,15 +1049,20 @@ input, .btn, .slick-slide, textarea
 		display: block
 		&.selected
 			z-index: 1
-		
+
+/* /Bye */		
 		
 
+/* Select */
 .select
 	position: relative
 	&_toggle
 		.select
 			&__list
 				display: block
+			&__text
+				&:after
+					transform: rotate(180deg)
 				
 	&__text
 		cursor: pointer
@@ -970,6 +1072,7 @@ input, .btn, .slick-slide, textarea
 			content: ''
 			@include sprite($arrow-down)
 			margin-left: 16px
+			transition: .3s
 		
 	&__list
 		display: none
@@ -991,18 +1094,18 @@ input, .btn, .slick-slide, textarea
 			margin-bottom: 0
 		&:hover, &.selected
 			background-color: darken(#f27397, 10%)
-		
+/* /Select */	
 
 		
 			
-		
+/* Map */	
 .map
 	width: 100%
 	height: 747px
+/* /Map */	
 		
 		
-		
-		
+/* FAQ */
 .faq
 	padding-top: 126px
 	margin-bottom: 110px
@@ -1020,9 +1123,13 @@ input, .btn, .slick-slide, textarea
 					
 		&-head
 			position: relative
+			padding-left: 35px
+			padding-right: 25px
 			span
 				width: 35px
-				display: inline-block
+				position: absolute
+				top: 0
+				left: 0
 			&:after
 				content: ''
 				position: absolute
@@ -1042,7 +1149,12 @@ input, .btn, .slick-slide, textarea
 				&:after
 					transform: rotate(180deg)
 
+/* /FAQ */
 
+
+
+
+/* Articles */
 .articles
 	&__title
 		margin-bottom: 90px
@@ -1114,11 +1226,17 @@ input, .btn, .slick-slide, textarea
 	background-color: #eceff5
 	margin-top: -450px
 
+/* /Articles */
 
+
+
+
+
+/* Footer */
 .footer
 	color: #fff
 	background: url('../../img/bg/footer.png') no-repeat center top
-	// background-size: cover
+	background-size: cover
 	padding-top: 48px
 	padding-bottom: 83px
 	a
@@ -1168,7 +1286,7 @@ input, .btn, .slick-slide, textarea
 		margin-right: -25px
 		// padding-left: 20px
 		
-		
+/* /Footer */		
 		
 .icon
 	display: inline-block
@@ -1177,20 +1295,4 @@ input, .btn, .slick-slide, textarea
 .hidden-lg
 	display: none
 
-
-.pp
-	display: none
-	opacity: .5
-	z-index: 2
-	position: absolute
-	top: 0
-	left: 0
-	right: 0
-	overflow: hidden
-	img
-		position: absolute
-		transform: translateX(-50%)
-		left: 50%
-		max-width: none !important
-		max-height: none !important
 
